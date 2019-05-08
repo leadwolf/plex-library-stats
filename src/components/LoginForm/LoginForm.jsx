@@ -1,23 +1,24 @@
+import './loginForm.scss';
+
 import PropTypes from 'prop-types';
 import React from 'react';
 
 const LoginForm = ({ username, password, onSubmit }) => {
     return (
-        <div>
-            <form
-                onSubmit={e => {
-                    e.preventDefault();
+        <form
+            onSubmit={e => {
+                e.preventDefault();
 
-                    onSubmit();
-                }}
-            >
-                <input type="text" name="username" value={username || ''} />
-                <input type="text" name="username" value={password || ''} />
-                <button type="submit" onClick={onSubmit}>
-                    Submit
-                </button>
-            </form>
-        </div>
+                onSubmit();
+            }}
+            className="login-form"
+        >
+            <input type="text" name="username" value={username || ''} />
+            <input type="text" name="username" value={password || ''} />
+            <button type="submit" onClick={onSubmit}>
+                Submit
+            </button>
+        </form>
     );
 };
 
