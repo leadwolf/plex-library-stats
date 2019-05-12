@@ -15,6 +15,7 @@ const composeEnhancers = composeWithDevTools({
 });
 
 const reduxLogger = createLogger({
+    predicate: (getState, action) => !action.type.startsWith('@@router'),
     logger,
 });
 
