@@ -1,12 +1,27 @@
+import { fromUnixTime } from 'date-fns/esm';
+
 import * as AuthTypes from './authTypes';
 
 const initialState = {
-    access_token: '',
-
     isAuthenticated: false,
     initialized: true,
 
-    user: {},
+    authToken: '',
+    authentication_token: '',
+    confirmedAt: fromUnixTime(0), // account confirmation
+    email: '',
+    entitlements: [],
+    forumId: null,
+    hasPassword: false,
+    id: -1,
+    joined_at: fromUnixTime(0),
+    rememberMe: false,
+    roles: {},
+    subscription: {},
+    thumb: '', // url
+    title: '',
+    username: '',
+    uuid: '',
 };
 
 const AuthenticationReducer = (state = initialState, action) => {
