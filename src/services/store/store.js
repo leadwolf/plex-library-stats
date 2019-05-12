@@ -7,6 +7,7 @@ import thunk from 'redux-thunk';
 import { AuthenticationMiddleware } from '../auth/authMiddleware';
 import { historyMiddleware } from '../history/history';
 import { logger } from '../logger/logger';
+import { XHRMiddleware } from '../xhr/xhrMiddleware';
 import { ApplicationReducer } from './applicationReducer';
 import { initialState } from './initialState';
 
@@ -19,7 +20,7 @@ const reduxLogger = createLogger({
     logger,
 });
 
-const middlewares = [thunk, historyMiddleware, AuthenticationMiddleware, reduxLogger];
+const middlewares = [thunk, historyMiddleware, AuthenticationMiddleware, XHRMiddleware, reduxLogger];
 
 const enhancer = composeEnhancers(applyMiddleware(...middlewares));
 
