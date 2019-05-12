@@ -1,5 +1,7 @@
 import './loginForm.scss';
 
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -13,11 +15,23 @@ const LoginForm = ({ username, password, handleUsernameChange, handlePasswordCha
             }}
             className="login-form"
         >
-            <input type="text" name="username" value={username || ''} onChange={handleUsernameChange} />
-            <input type="password" name="username" value={password || ''} onChange={handlePasswordChange} />
-            <button type="submit" onClick={onSubmit}>
+            <TextField
+                type="text"
+                name="username"
+                value={username || ''}
+                onChange={handleUsernameChange}
+                label="Username"
+            />
+            <TextField
+                type="password"
+                name="username"
+                value={password || ''}
+                onChange={handlePasswordChange}
+                label="Password"
+            />
+            <Button type="submit" onClick={onSubmit} color="primary">
                 Submit
-            </button>
+            </Button>
         </form>
     );
 };
