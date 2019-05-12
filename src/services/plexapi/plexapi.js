@@ -1,5 +1,7 @@
 import Axios from 'axios';
-import { getClientUUID } from '../device/device';
+
+import { XHR } from '../xhr/xhr';
+import { getPlexHeaders } from './plexApiUtils';
 
 export const signIn = (login, password) =>
     Axios.post(
@@ -11,10 +13,8 @@ export const signIn = (login, password) =>
             },
         },
         {
-            headers: {
-                'X-Plex-Client-Identifier': getClientUUID(),
-                'X-Plex-Product': 'plex-library-stats',
-                'X-Plex-Version': '1.0.0',
-            },
+            headers: getPlexHeaders(),
         }
     );
+
+export const getRemoteServers = () => XHR.get('/pms/servers.xml', { headers: getPlexHeaders() });
